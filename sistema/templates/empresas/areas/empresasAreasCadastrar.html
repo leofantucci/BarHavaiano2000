@@ -1,0 +1,15 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Cadastrar Área{% endblock %}
+{% block inner_content %}
+    <h1>Cadastrar Área</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button class="btn btn-primary">Salvar</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:areas' id%}">Voltar</a>
+    </div>
+{% endblock %}

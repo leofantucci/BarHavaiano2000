@@ -1,0 +1,21 @@
+<div class="entity-card">
+    <h3>Funcionário {{ funcionario.id }}</h3>
+    <p><strong>Nome:</strong> {{ funcionario.nome }}</p>
+    <p><strong>CPF:</strong> {{ funcionario.cpf }}</p>
+    <p><strong>Telefone:</strong> {{ funcionario.telefone }}</p>
+    <p><strong>Data Nascimento:</strong> {{ funcionario.data_nascimento }}</p>
+    <p><strong>Cargo:</strong> {{ funcionario.cargo }}</p>
+    <p><strong>Salário:</strong> {{ funcionario.salario }}</p>
+    <p><strong>Admissão:</strong> {{ funcionario.data_admissao }}</p>
+    <p><strong>Demissão:</strong> {{ funcionario.data_demissao }}</p>
+    <p>
+        <strong>Status:</strong>
+        {% if funcionario.contrato_ativo %}
+            <span class="badge badge-success">Contrato Ativo</span>
+        {% else %}
+            <span class="badge badge-info">Contrato Finalizado</span>
+        {% endif %}
+    </p>
+    <p><strong>Data Cadastro:</strong> {{ funcionario.data_cadastro }}</p>
+    <p><strong>Login:</strong> {{ funcionario.usuario.username }}</p>
+</div>

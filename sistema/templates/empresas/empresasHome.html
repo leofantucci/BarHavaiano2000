@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Empresas — Xhampolhos Bar{% endblock %}
+{% block content %}
+    <h1>Empresas</h1>
+
+    <div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Empresa</th>
+                <th>Data Cadastro</th>
+                <th>Config</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empresa in empresas %}
+                <tr>
+                    <td><a href="{% url 'empresas:overview' empresa.id %}"><i class="fas fa-arrow-right"></i></a></td>
+                    <td>{{empresa.id}}</td>
+                    <td>{{empresa.nome}}</td>
+                    <td>{{empresa.data_cadastro}}</td>
+                    <td>
+                        <a href="{% url 'empresas:empresasEditar' empresa.id %}">Editar</a>
+                        <a href="{% url 'empresas:empresasDeletar' empresa.id %}">Excluir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:empresasCadastrar' %}">Cadastrar empresa</a>
+    </div>
+{% endblock %}

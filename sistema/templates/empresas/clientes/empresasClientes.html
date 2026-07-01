@@ -1,0 +1,22 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Clientes{% endblock %}
+{% block inner_content %}
+    <h1>Clientes</h1>
+
+    <div class="lista-areas">
+        {% for cliente in clientes %}
+        <div class="entity-grid-item">
+            {% include "componentes/clienteCard.html" %}
+            <div class="lista-actions">
+                <a href="{% url 'empresas:clientesEditar' cliente.empresa.id cliente.id %}">Editar</a>
+                <a href="{% url 'empresas:clientesDeletar' cliente.empresa.id cliente.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:clientesCadastrar' id %}">Cadastrar cliente</a>
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

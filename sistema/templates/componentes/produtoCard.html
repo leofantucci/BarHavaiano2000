@@ -1,0 +1,17 @@
+<div class="entity-card">
+    <h3>Produto {{ produto.id }}</h3>
+    <p><strong>Nome:</strong> {{ produto.nome }}</p>
+    <p><strong>Área:</strong> {{ produto.area }}</p>
+    <p><strong>Preço:</strong> {{ produto.preco }}</p>
+    <p><strong>Obs.:</strong> {{ produto.obs }}</p>
+    <p><strong>Qtd. Estoque:</strong> {{ produto.qtd_estoque }}</p>
+    <p>
+        <strong>Status:</strong>
+        {% if produto.disponivel %}
+            <span class="badge badge-success">Disponível</span>
+        {% else %}
+            <span class="badge badge-info">Indisponível</span>
+        {% endif %}
+    </p>
+    <p><strong>Data Cadastro:</strong> {{ produto.data_cadastro }}</p>
+</div>

@@ -1,0 +1,86 @@
+/* ============================================
+   Xhampolhos Bar — Design Tokens
+   Premium Dark Tropical-Tech Theme
+   Frutiger Aero × Frutiger Metro | Jamaican Premium
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-deep: #081C0E;
+  --bg-surface-1: #0E2615;
+  --bg-surface-2: #14311D;
+  --bg-elevated: #1A3D25;
+
+  --primary: #85E6A4;
+  --primary-light: #A8F0BF;
+  --primary-dark: #14913C;
+  --accent: #22EE63;
+  --accent-glow: rgba(34, 238, 99, 0.12);
+
+  --text-primary: #E4F5E9;
+  --text-secondary: rgba(228, 245, 233, 0.72);
+  --text-muted: rgba(228, 245, 233, 0.45);
+
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --glass-active: rgba(133, 230, 164, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 24px rgba(34, 238, 99, 0.08);
+
+  --font-display: 'Lexend', sans-serif;
+  --font-body: 'Lexend', sans-serif;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.5rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --sidebar-width: 260px;
+  --topbar-height: 68px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+  }
+}

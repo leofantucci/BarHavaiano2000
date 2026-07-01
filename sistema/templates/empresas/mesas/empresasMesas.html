@@ -1,0 +1,22 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Mesas{% endblock %}
+{% block inner_content %}
+    <h1>Mesas</h1>
+
+    <div class="lista-mesas">
+        {% for mesa in mesas %}
+        <div class="entity-grid-item">
+            {% include "componentes/mesaCard.html" with mesa=mesa %}
+            <div class="lista-actions">
+                <a href="{% url 'empresas:mesasEditar' mesa.empresa.id mesa.id %}">Editar</a>
+                <a href="{% url 'empresas:mesasDeletar' mesa.empresa.id mesa.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:mesasCadastrar' id %}">Cadastrar mesa</a>
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

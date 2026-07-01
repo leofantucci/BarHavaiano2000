@@ -1,0 +1,13 @@
+<div class="entity-card">
+    <h3>Mesa {{ mesa.numero }} ({{ mesa.id }})</h3>
+    <p><strong>Lugares:</strong> {{ mesa.qtd_lugares }}</p>
+    <p><strong>Comandas abertas:</strong> {{ mesa.qtd_comandas }}</p>
+    <p>
+        <strong>Status:</strong>
+        {% if mesa.ocupada %}
+            <span class="status status-ocupada">Ocupada</span>
+        {% else %}
+            <span class="status status-livre">Livre</span>
+        {% endif %}
+    </p>
+</div>

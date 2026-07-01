@@ -1,0 +1,22 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Áreas{% endblock %}
+{% block inner_content %}
+    <h1>Áreas</h1>
+
+    <div class="lista-areas">
+        {% for area in areas %}
+        <div class="entity-grid-item">
+            {% include "componentes/areaCard.html" %}
+            <div class="lista-actions">
+                <a href="{% url 'empresas:areasEditar' area.empresa.id area.id %}">Editar</a>
+                <a href="{% url 'empresas:areasDeletar' area.empresa.id area.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:areasCadastrar' id %}">Cadastrar área</a>
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block body_class %}internal-page{% endblock %}
+{% block container_class %}app-layout{% endblock %}
+{% block content %}
+<aside class="sidebar">
+    <div class="sidebar-logo">
+        <div class="logo-icon">
+            <i class="fas fa-glass-martini-alt"></i>
+        </div>
+        <span class="logo-text">Xhampolhos</span>
+    </div>
+    <nav class="sidebar-nav">
+        {% if empresa %}
+        {% with current_id=empresa.id %}
+        <div class="nav-section">Menu</div>
+        <a href="{% url 'empresas:overview' current_id %}" class="nav-item {% if request.resolver_match.url_name == 'overview' %}active{% endif %}">
+            <i class="fas fa-chart-pie"></i> Dashboard
+        </a>
+        <a href="{% url 'empresas:funcionarios' current_id %}" class="nav-item {% if 'funcionario' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-users"></i> Funcionários
+        </a>
+        <a href="{% url 'empresas:areas' current_id %}" class="nav-item {% if 'area' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-map-marked-alt"></i> Áreas
+        </a>
+        <a href="{% url 'empresas:mesas' current_id %}" class="nav-item {% if 'mesa' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-chair"></i> Mesas
+        </a>
+        <a href="{% url 'empresas:produtos' current_id %}" class="nav-item {% if 'produto' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-box"></i> Produtos
+        </a>
+        <a href="{% url 'empresas:clientes' current_id %}" class="nav-item {% if 'cliente' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-user-friends"></i> Clientes
+        </a>
+        {% endwith %}
+        {% elif id %}
+        {% with current_id=id %}
+        <div class="nav-section">Menu</div>
+        <a href="{% url 'empresas:overview' current_id %}" class="nav-item {% if request.resolver_match.url_name == 'overview' %}active{% endif %}">
+            <i class="fas fa-chart-pie"></i> Dashboard
+        </a>
+        <a href="{% url 'empresas:funcionarios' current_id %}" class="nav-item {% if 'funcionario' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-users"></i> Funcionários
+        </a>
+        <a href="{% url 'empresas:areas' current_id %}" class="nav-item {% if 'area' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-map-marked-alt"></i> Áreas
+        </a>
+        <a href="{% url 'empresas:mesas' current_id %}" class="nav-item {% if 'mesa' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-chair"></i> Mesas
+        </a>
+        <a href="{% url 'empresas:produtos' current_id %}" class="nav-item {% if 'produto' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-box"></i> Produtos
+        </a>
+        <a href="{% url 'empresas:clientes' current_id %}" class="nav-item {% if 'cliente' in request.resolver_match.url_name %}active{% endif %}">
+            <i class="fas fa-user-friends"></i> Clientes
+        </a>
+        {% endwith %}
+        {% endif %}
+    </nav>
+</aside>
+<div class="main-area">
+    <header class="topbar">
+        <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="topbar-actions">
+            <a href="{% url 'usuarios:logout' %}" class="btn btn-sm btn-secondary">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </a>
+            <div class="avatar">
+                {% if user.is_authenticated %}{{ user.username|first|upper }}{% else %}?{% endif %}
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        {% block inner_content %}{% endblock %}
+    </main>
+</div>
+{% endblock %}

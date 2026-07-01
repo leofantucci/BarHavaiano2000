@@ -1,0 +1,15 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Editar Funcionário{% endblock %}
+{% block inner_content %}
+    <h1>Editar Funcionário</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button class="btn btn-primary">Salvar</button>
+    </form>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

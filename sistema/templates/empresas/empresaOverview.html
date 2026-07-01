@@ -1,0 +1,100 @@
+{% extends 'empresas/base.html' %}
+{% block title %}{{nome}} — Dashboard{% endblock %}
+{% block inner_content %}
+<div class="page-header">
+    <h1>{{nome}}</h1>
+    <span class="badge badge-success" style="font-size:var(--text-xs);padding:4px 12px;">Código {{id}}</span>
+</div>
+
+<div class="kpi-grid">
+    <div class="kpi-card">
+        <div class="kpi-header">
+            <div class="kpi-icon"><i class="fas fa-shopping-cart"></i></div>
+            <span class="kpi-change up"><i class="fas fa-arrow-up"></i> 12%</span>
+        </div>
+        <div class="kpi-value">{{ funcionarios_count|default:"0" }}</div>
+        <div class="kpi-label">Pedidos Ativos</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-header">
+            <div class="kpi-icon orange"><i class="fas fa-dollar-sign"></i></div>
+            <span class="kpi-change up"><i class="fas fa-arrow-up"></i> 8%</span>
+        </div>
+        <div class="kpi-value">R$ {{ vendas_dia|default:"0" }}</div>
+        <div class="kpi-label">Faturamento Hoje</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-header">
+            <div class="kpi-icon red"><i class="fas fa-utensils"></i></div>
+            <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 3%</span>
+        </div>
+        <div class="kpi-value">{{ mesas_ocupadas|default:"0" }}</div>
+        <div class="kpi-label">Mesas Ocupadas</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-header">
+            <div class="kpi-icon blue"><i class="fas fa-smile"></i></div>
+            <span class="kpi-change up"><i class="fas fa-arrow-up"></i> 5%</span>
+        </div>
+        <div class="kpi-value">{{ satisfacao|default:"98" }}%</div>
+        <div class="kpi-label">Satisfação</div>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="glass-panel full-width">
+        <div class="glass-panel-header">
+            <span class="glass-panel-title"><i class="fas fa-th-large" style="margin-right:8px;color:var(--primary);"></i> Navegação Rápida</span>
+        </div>
+        <ul class="nav-grid">
+            <li><a href="{% url 'empresas:funcionarios' id %}"><i class="fas fa-users"></i> Funcionários</a></li>
+            <li><a href="{% url 'empresas:areas' id %}"><i class="fas fa-map-marked-alt"></i> Áreas</a></li>
+            <li><a href="{% url 'empresas:mesas' id %}"><i class="fas fa-chair"></i> Mesas</a></li>
+            <li><a href="{% url 'empresas:produtos' id %}"><i class="fas fa-box"></i> Produtos</a></li>
+            <li><a href="{% url 'empresas:clientes' id %}"><i class="fas fa-user-friends"></i> Clientes</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="glass-panel">
+        <div class="glass-panel-header">
+            <span class="glass-panel-title"><i class="fas fa-chart-line" style="margin-right:8px;color:var(--primary);"></i> Vendas (últimos 7 dias)</span>
+        </div>
+        <div class="chart-bars">
+            <div class="chart-bar" style="height:77%;"><span class="chart-bar-label">Seg</span></div>
+            <div class="chart-bar" style="height:62%;"><span class="chart-bar-label">Ter</span></div>
+            <div class="chart-bar" style="height:38%;"><span class="chart-bar-label">Qua</span></div>
+            <div class="chart-bar" style="height:75%;"><span class="chart-bar-label">Qui</span></div>
+            <div class="chart-bar" style="height:55%;"><span class="chart-bar-label">Sex</span></div>
+            <div class="chart-bar" style="height:90%;"><span class="chart-bar-label">Sáb</span></div>
+            <div class="chart-bar" style="height:70%;"><span class="chart-bar-label">Dom</span></div>
+        </div>
+    </div>
+    <div class="glass-panel">
+        <div class="glass-panel-header">
+            <span class="glass-panel-title"><i class="fas fa-bell" style="margin-right:8px;color:var(--primary);"></i> Alertas</span>
+        </div>
+        <div class="alert-item">
+            <div class="alert-dot info"></div>
+            <span class="alert-text">Novo pedido #042 recebido</span>
+            <span class="alert-time">2 min</span>
+        </div>
+        <div class="alert-item">
+            <div class="alert-dot warning"></div>
+            <span class="alert-text">Estoque baixo: Caipirinha</span>
+            <span class="alert-time">15 min</span>
+        </div>
+        <div class="alert-item">
+            <div class="alert-dot info"></div>
+            <span class="alert-text">Mesa 7 solicitou conta</span>
+            <span class="alert-time">28 min</span>
+        </div>
+        <div class="alert-item">
+            <div class="alert-dot critical"></div>
+            <span class="alert-text">Funcionário sem registro de ponto</span>
+            <span class="alert-time">1h</span>
+        </div>
+    </div>
+</div>
+{% endblock %}

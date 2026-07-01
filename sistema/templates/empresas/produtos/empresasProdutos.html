@@ -1,0 +1,22 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Produtos{% endblock %}
+{% block inner_content %}
+    <h1>Produtos</h1>
+
+    <div class="lista-produtos">
+        {% for produto in produtos %}
+        <div class="entity-grid-item">
+            {% include "componentes/produtoCard.html" %}
+            <div class="lista-actions">
+                <a href="{% url 'empresas:produtosEditar' produto.empresa.id produto.id %}">Editar</a>
+                <a href="{% url 'empresas:produtosDeletar' produto.empresa.id produto.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:produtosCadastrar' id %}">Cadastrar produto</a>
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

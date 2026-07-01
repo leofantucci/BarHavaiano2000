@@ -1,0 +1,22 @@
+{% extends 'empresas/base.html' %}
+{% block title %}Funcionários{% endblock %}
+{% block inner_content %}
+    <h1>Funcionários</h1>
+
+    <div class="lista-funcionarios">
+        {% for funcionario in funcionarios %}
+        <div class="entity-grid-item">
+            {% include "componentes/funcionarioCard.html" %}
+            <div class="lista-actions">
+                <a href="{% url 'empresas:funcionariosEditar' funcionario.empresa.id funcionario.id %}">Editar</a>
+                <a href="{% url 'empresas:funcionariosDeletar' funcionario.empresa.id funcionario.id %}">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'empresas:funcionariosCadastrar' id %}">Cadastrar funcionário</a>
+        <a href="{% url 'empresas:overview' id %}">Voltar</a>
+    </div>
+{% endblock %}

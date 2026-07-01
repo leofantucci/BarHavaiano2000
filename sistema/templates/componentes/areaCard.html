@@ -1,0 +1,13 @@
+<div class="entity-card">
+    <h3>Área {{ area.id }}</h3>
+    <p><strong>Nome:</strong> {{ area.nome }}</p>
+    <p>
+        <strong>Status:</strong>
+        {% if area.aberta %}
+            <span class="status status-aberta">Aberta</span>
+        {% else %}
+            <span class="status status-fechada">Fechada</span>
+        {% endif %}
+    </p>
+    <p><strong>Data Cadastro:</strong> {{ area.data_cadastro }}</p>
+</div>
